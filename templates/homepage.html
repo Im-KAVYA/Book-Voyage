@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOK VOYAGE</title>
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <style>
+        body{
+            color: white;
+        }
+        .navbar-header {
+            width: 100%;
+            text-align: center;
+        }
+        .navbar-brand {
+            display: inline-block;
+            float: none;
+        }
+        .navbar-nav {
+            display: inline-block;
+            float: none;
+            margin: 0;
+            padding-left: 0;
+        }
+        .navbar-nav > li {
+            display: inline-block;
+            margin-left: 50px;
+            padding-left: 0;
+        }
+        .navbar-nav > li > a {
+            color : white;
+        }
+        .top-title{
+            color : #ff6347;
+            animation: blink 1s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+        .top-books-container{
+            display:grid;
+            grid-template-columns: repeat(5, 1fr);
+            margin-left: 70px;
+            margin-right: 70px;
+            gap:50px;
+        }
+        .top-books {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color:black">
+    <nav class="navbar" style="background-color:#9370DB">
+        <div class="navbar-header">
+        <a class="navbar-brand">
+            <h2 class="text-center"><b>BOOK VOYAGE</b></h2>
+        </a>
+        </div>
+        <hr style="border-color: black; border-width: 3px;">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a>Contact</a></li>
+        </ul>
+        <br><br>
+    </nav>
+
+    <div class="container">
+        <div class="top-title">
+            <h2>TOP 50 BOOKS !</h2>
+        </div>
+        <br>
+        <div class="top-books-container">
+        {% for i in range(book|length) %}
+            <div class="top-books">
+                <img src="{{ image[i] }}" alt="Book Cover">
+                <h3>{{ book[i] }}</h3>
+                <h4>Author : {{ author[i] }}<br>
+                Votes : {{ votes[i] }}<br>
+                Rating : {{ rating[i] }}</h4>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
