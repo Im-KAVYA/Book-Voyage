@@ -39,4 +39,4 @@ def recommend_books():
     return render_template('recommend.html',data=suggested_df.values)
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8080,debug=True)
